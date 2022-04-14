@@ -14,11 +14,60 @@ const questions = [
     'What is your email address?'
 ];
 
+
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile({title, description, installationGuide, usageInfo, contributionGuide, testInstruct, gitHubUser}) {
+    `
+    <h1 align="center">${title}</h1>
+<h1 align="center"></h1>
+<h2 align="center">Technologies Used</h1>
+
+---
+
+<h1 align="center">Description</h1>
+
+<p align="center">${description}</p>
+
+---
+
+<h1 align="center">Installation Guidelines</h1>
+
+<p align="center">${installationGuide}</p>
+
+---
+
+<h1 align="center">Usage Information</h1>
+
+<p align="center">${usageInfo}</p>
+
+---
+
+<h1 align="center">Contribution Guidelines</h1>
+
+<p align="center">${contributionGuide}</p>
+
+---
+
+<h1 align="center">Test Instructions</h1>
+
+<p align="center">${testInstruct}</p>
+
+<h2 align="center">Github Repo for Genre-Finder</h2>
+<p align="center"><a href="https://github.com/StuMartin22/genre-finder">https://github.com/StuMartin22/genre-finder</a></p>
+
+---
+
+<h1 align="center">Link to Github</h1>
+
+<p align="center"><a href="https://github.com/${gitHubUser}">GitHub Link</a></p>
+    `
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    
+}
 
 // Function call to initialize app
 init();
