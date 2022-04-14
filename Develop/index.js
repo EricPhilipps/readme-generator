@@ -65,9 +65,12 @@ function writeToFile({title, description, installationGuide, usageInfo, contribu
 }
 
 // TODO: Create a function to initialize app
-function init() {
-    
-}
+const init = () => {
+    promptUser()
+        .then((input) => fs.writeFileSync('generatedREADME.md', writeToFile(input)))
+        .then(() => console.log('Successfully wrote to file: generatedREADME.md'))
+        .catch((err) => console.erroe(err));
+};
 
 // Function call to initialize app
 init();
