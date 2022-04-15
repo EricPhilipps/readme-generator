@@ -12,10 +12,11 @@ const questions = [
     'What license badge would you like to include?',
     'What is your GitHub username?',
     'What is your email address?',
-    'How would you like someone to reach dyou with questions?',
+    'How would you like someone to reach you with questions?',
 ];
 
 const promptUser = () => {
+    return inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -60,56 +61,69 @@ const promptUser = () => {
         type: 'input',
         name: 'contactInstruct',
         message: questions[9]
-    }
-
+    },
+    ]);
 }
 
 // TODO: Create a function to write README file
-function writeToFile({title, description, installationGuide, usageInfo, contributionGuide, testInstruct, gitHubUser}) =>
+const writeToFile = ({title, description, installationGuide, usageInfo, contributionGuide, testInstruct, gitHubUser, email, contactInstruct}) =>
     `
-    <h1 align="center">${title}</h1>
+#${title}
+##Table of Contents
+### [Description](#description)
+
+### [Installation Guidelines](#installation-guidelines)
+
+### [Usage Information](#usage-information)
+
+### [Contribution Guidelines](#contribution-guidelines)
+
+### [Test Instructions](#test-instructions)
+
+### [Questions](#questions)
+
 
 ---
 
-<h1 align="center">Description</h1>
+##Description
 
-<p align="center">${description}</p>
-
----
-
-<h1 align="center">Installation Guidelines</h1>
-
-<p align="center">${installationGuide}</p>
+${description}
 
 ---
 
-<h1 align="center">Usage Information</h1>
+##Installation Guidelines
 
-<p align="center">${usageInfo}</p>
-
----
-
-<h1 align="center">Contribution Guidelines</h1>
-
-<p align="center">${contributionGuide}</p>
+${installationGuide}
 
 ---
 
-<h1 align="center">Test Instructions</h1>
+##Usage Information
 
-<p align="center">${testInstruct}</p>
+${usageInfo}
 
 ---
 
-<h1 align="center">Questions</h1>
+##Contribution Guidelines
 
-<p align="center">
-<a href="https://github.com/${gitHubUser}">GitHub Link</a>
+${contributionGuide}
+
+---
+
+##Test Instructions
+
+${testInstruct}
+
+---
+
+## Questions
+
+GitHub: https://github.com/${gitHubUser}
+
 Email Address : ${email}
-</p>
 
-<h2 align="center">How to reach me<h2>
-<p align="center">${contactInstruct}<p>
+### How to Reach Me
+
+${contactInstruct}
     `;
 
 // TODO: Create a function to initialize app
